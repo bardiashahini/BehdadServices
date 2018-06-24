@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="com.misc.bis.behdad.service" name="AllotmentService" targetNamespace="com.misc.bis.behdad.service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="com.misc.bis.behdad.service" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="com.misc.bis.behdad.service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addAllotmentInfo" type="tns:addAllotmentInfo" />
+      <xs:element name="addAllotmentInfoResponse" type="tns:addAllotmentInfoResponse" />
+      <xs:element name="doManualAllotment" type="tns:doManualAllotment" />
+      <xs:element name="doManualAllotmentResponse" type="tns:doManualAllotmentResponse" />
+      <xs:element name="getAllotmentAccounts" type="tns:getAllotmentAccounts" />
+      <xs:element name="getAllotmentAccountsResponse" type="tns:getAllotmentAccountsResponse" />
+      <xs:element name="getAllotmentInfo" type="tns:getAllotmentInfo" />
+      <xs:element name="getAllotmentInfoList" type="tns:getAllotmentInfoList" />
+      <xs:element name="getAllotmentInfoListResponse" type="tns:getAllotmentInfoListResponse" />
+      <xs:element name="getAllotmentInfoResponse" type="tns:getAllotmentInfoResponse" />
+      <xs:element name="getAllotmentTransactions" type="tns:getAllotmentTransactions" />
+      <xs:element name="getAllotmentTransactionsResponse" type="tns:getAllotmentTransactionsResponse" />
+      <xs:element name="removeAllotmentInfo" type="tns:removeAllotmentInfo" />
+      <xs:element name="removeAllotmentInfoResponse" type="tns:removeAllotmentInfoResponse" />
+      <xs:complexType name="getAllotmentAccounts">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:credential" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="credential">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="username" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllotmentAccountsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addAllotmentInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:credential" />
+          <xs:element minOccurs="0" name="arg1" type="tns:allotmentInfoDetail" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="allotmentInfoDetail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="allotmentCode" type="xs:string" />
+          <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="amountType" type="tns:allotmentAmountType" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="destAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="endDate" type="xs:string" />
+          <xs:element minOccurs="0" name="incomeIndexCode" type="xs:string" />
+          <xs:element minOccurs="0" name="incomeSubsidiaryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="organCustomCode" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="startDate" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addAllotmentInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllotmentTransactions">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:credential" />
+          <xs:element minOccurs="0" name="arg1" type="tns:allotmentTransactionFilter" />
+          <xs:element minOccurs="0" name="arg2" type="tns:paging" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="allotmentTransactionFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="fromDateTime" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentIdentifier" type="xs:string" />
+          <xs:element minOccurs="0" name="toDateTime" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="paging">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pageNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="recordCount" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllotmentTransactionsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:pagedData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="pagedData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="currentPageData" nillable="true" type="xs:anyType" />
+          <xs:element minOccurs="0" name="pageIndex" type="xs:int" />
+          <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+          <xs:element minOccurs="0" name="totalCount" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="allotmentTransaction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="allotmentIdentifier" type="xs:string" />
+          <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="destAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentIdentifier" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="success" type="xs:boolean" />
+          <xs:element minOccurs="0" name="transactionDate" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllotmentInfoList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:credential" />
+          <xs:element minOccurs="0" name="arg1" type="tns:allotmentFilter" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="allotmentFilter">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="allotmentCode" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllotmentInfoListResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:allotmentInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="allotmentInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="amountType" type="tns:allotmentAmountType" />
+          <xs:element minOccurs="0" name="destAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="endDate" type="xs:string" />
+          <xs:element minOccurs="0" name="id" type="xs:long" />
+          <xs:element minOccurs="0" name="startDate" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removeAllotmentInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:credential" />
+          <xs:element minOccurs="0" name="allotmentInformationId" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="removeAllotmentInfoResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="doManualAllotment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:credential" />
+          <xs:element minOccurs="0" name="transactionId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="manualAllotmentInfoList" type="tns:manualAllotmentInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="manualAllotmentInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="amountType" type="tns:allotmentAmountType" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="destAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="paymentIdentifier" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="doManualAllotmentResponse">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="getAllotmentInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:credential" />
+          <xs:element minOccurs="0" name="allotmentInformationId" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllotmentInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:allotmentInfoDetail" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="allotmentAmountType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="PERCENT" />
+          <xs:enumeration value="MONETARY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="InvalidCredentialException" type="tns:InvalidCredentialException" />
+      <xs:complexType name="InvalidCredentialException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UnableToAuthenticateException" type="tns:UnableToAuthenticateException" />
+      <xs:complexType name="UnableToAuthenticateException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InvalidAllotmentItemInfoException" type="tns:InvalidAllotmentItemInfoException" />
+      <xs:complexType name="InvalidAllotmentItemInfoException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InvalidAllotmentCodeException" type="tns:InvalidAllotmentCodeException" />
+      <xs:complexType name="InvalidAllotmentCodeException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InvalidDateException" type="tns:InvalidDateException" />
+      <xs:complexType name="InvalidDateException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PageSizeIsTooMuchException" type="tns:PageSizeIsTooMuchException" />
+      <xs:complexType name="PageSizeIsTooMuchException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InvalidTransactionForAllotmentException" type="tns:InvalidTransactionForAllotmentException" />
+      <xs:complexType name="InvalidTransactionForAllotmentException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TransactionAlreadyAllotedException" type="tns:TransactionAlreadyAllotedException" />
+      <xs:complexType name="TransactionAlreadyAllotedException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InvalidAllotmentAmountTypeException" type="tns:InvalidAllotmentAmountTypeException" />
+      <xs:complexType name="InvalidAllotmentAmountTypeException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InvalidAllotmentException" type="tns:InvalidAllotmentException" />
+      <xs:complexType name="InvalidAllotmentException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="UnableToAllotException" type="tns:UnableToAllotException" />
+      <xs:complexType name="UnableToAllotException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="InvalidTransactionIdException" type="tns:InvalidTransactionIdException" />
+      <xs:complexType name="InvalidTransactionIdException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="AllotmentAmountIsMoreThanTransactionAmountException" type="tns:AllotmentAmountIsMoreThanTransactionAmountException" />
+      <xs:complexType name="AllotmentAmountIsMoreThanTransactionAmountException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="InvalidCredentialException">
+    <wsdl:part name="InvalidCredentialException" element="ns1:InvalidCredentialException" />
+  </wsdl:message>
+  <wsdl:message name="addAllotmentInfo">
+    <wsdl:part name="parameters" element="ns1:addAllotmentInfo" />
+  </wsdl:message>
+  <wsdl:message name="InvalidTransactionForAllotmentException">
+    <wsdl:part name="InvalidTransactionForAllotmentException" element="ns1:InvalidTransactionForAllotmentException" />
+  </wsdl:message>
+  <wsdl:message name="UnableToAllotException">
+    <wsdl:part name="UnableToAllotException" element="ns1:UnableToAllotException" />
+  </wsdl:message>
+  <wsdl:message name="getAllotmentInfo">
+    <wsdl:part name="parameters" element="ns1:getAllotmentInfo" />
+  </wsdl:message>
+  <wsdl:message name="addAllotmentInfoResponse">
+    <wsdl:part name="parameters" element="ns1:addAllotmentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvalidAllotmentItemInfoException">
+    <wsdl:part name="InvalidAllotmentItemInfoException" element="ns1:InvalidAllotmentItemInfoException" />
+  </wsdl:message>
+  <wsdl:message name="PageSizeIsTooMuchException">
+    <wsdl:part name="PageSizeIsTooMuchException" element="ns1:PageSizeIsTooMuchException" />
+  </wsdl:message>
+  <wsdl:message name="AllotmentAmountIsMoreThanTransactionAmountException">
+    <wsdl:part name="AllotmentAmountIsMoreThanTransactionAmountException" element="ns1:AllotmentAmountIsMoreThanTransactionAmountException" />
+  </wsdl:message>
+  <wsdl:message name="UnableToAuthenticateException">
+    <wsdl:part name="UnableToAuthenticateException" element="ns1:UnableToAuthenticateException" />
+  </wsdl:message>
+  <wsdl:message name="getAllotmentInfoResponse">
+    <wsdl:part name="parameters" element="ns1:getAllotmentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvalidAllotmentAmountTypeException">
+    <wsdl:part name="InvalidAllotmentAmountTypeException" element="ns1:InvalidAllotmentAmountTypeException" />
+  </wsdl:message>
+  <wsdl:message name="removeAllotmentInfoResponse">
+    <wsdl:part name="parameters" element="ns1:removeAllotmentInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvalidTransactionIdException">
+    <wsdl:part name="InvalidTransactionIdException" element="ns1:InvalidTransactionIdException" />
+  </wsdl:message>
+  <wsdl:message name="getAllotmentAccounts">
+    <wsdl:part name="parameters" element="ns1:getAllotmentAccounts" />
+  </wsdl:message>
+  <wsdl:message name="getAllotmentAccountsResponse">
+    <wsdl:part name="parameters" element="ns1:getAllotmentAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="TransactionAlreadyAllotedException">
+    <wsdl:part name="TransactionAlreadyAllotedException" element="ns1:TransactionAlreadyAllotedException" />
+  </wsdl:message>
+  <wsdl:message name="getAllotmentInfoList">
+    <wsdl:part name="parameters" element="ns1:getAllotmentInfoList" />
+  </wsdl:message>
+  <wsdl:message name="InvalidAllotmentCodeException">
+    <wsdl:part name="InvalidAllotmentCodeException" element="ns1:InvalidAllotmentCodeException" />
+  </wsdl:message>
+  <wsdl:message name="removeAllotmentInfo">
+    <wsdl:part name="parameters" element="ns1:removeAllotmentInfo" />
+  </wsdl:message>
+  <wsdl:message name="doManualAllotmentResponse">
+    <wsdl:part name="parameters" element="ns1:doManualAllotmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAllotmentTransactions">
+    <wsdl:part name="parameters" element="ns1:getAllotmentTransactions" />
+  </wsdl:message>
+  <wsdl:message name="getAllotmentTransactionsResponse">
+    <wsdl:part name="parameters" element="ns1:getAllotmentTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvalidAllotmentException">
+    <wsdl:part name="InvalidAllotmentException" element="ns1:InvalidAllotmentException" />
+  </wsdl:message>
+  <wsdl:message name="getAllotmentInfoListResponse">
+    <wsdl:part name="parameters" element="ns1:getAllotmentInfoListResponse" />
+  </wsdl:message>
+  <wsdl:message name="doManualAllotment">
+    <wsdl:part name="parameters" element="ns1:doManualAllotment" />
+  </wsdl:message>
+  <wsdl:message name="InvalidDateException">
+    <wsdl:part name="InvalidDateException" element="ns1:InvalidDateException" />
+  </wsdl:message>
+  <wsdl:portType name="AllotmentService">
+    <wsdl:operation name="getAllotmentAccounts">
+      <wsdl:input name="getAllotmentAccounts" message="ns1:getAllotmentAccounts" />
+      <wsdl:output name="getAllotmentAccountsResponse" message="ns1:getAllotmentAccountsResponse" />
+      <wsdl:fault name="UnableToAuthenticateException" message="ns1:UnableToAuthenticateException" />
+      <wsdl:fault name="InvalidCredentialException" message="ns1:InvalidCredentialException" />
+    </wsdl:operation>
+    <wsdl:operation name="addAllotmentInfo">
+      <wsdl:input name="addAllotmentInfo" message="ns1:addAllotmentInfo" />
+      <wsdl:output name="addAllotmentInfoResponse" message="ns1:addAllotmentInfoResponse" />
+      <wsdl:fault name="InvalidAllotmentItemInfoException" message="ns1:InvalidAllotmentItemInfoException" />
+      <wsdl:fault name="InvalidDateException" message="ns1:InvalidDateException" />
+      <wsdl:fault name="UnableToAuthenticateException" message="ns1:UnableToAuthenticateException" />
+      <wsdl:fault name="InvalidCredentialException" message="ns1:InvalidCredentialException" />
+      <wsdl:fault name="InvalidAllotmentCodeException" message="ns1:InvalidAllotmentCodeException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllotmentTransactions">
+      <wsdl:input name="getAllotmentTransactions" message="ns1:getAllotmentTransactions" />
+      <wsdl:output name="getAllotmentTransactionsResponse" message="ns1:getAllotmentTransactionsResponse" />
+      <wsdl:fault name="InvalidDateException" message="ns1:InvalidDateException" />
+      <wsdl:fault name="PageSizeIsTooMuchException" message="ns1:PageSizeIsTooMuchException" />
+      <wsdl:fault name="UnableToAuthenticateException" message="ns1:UnableToAuthenticateException" />
+      <wsdl:fault name="InvalidCredentialException" message="ns1:InvalidCredentialException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllotmentInfoList">
+      <wsdl:input name="getAllotmentInfoList" message="ns1:getAllotmentInfoList" />
+      <wsdl:output name="getAllotmentInfoListResponse" message="ns1:getAllotmentInfoListResponse" />
+      <wsdl:fault name="UnableToAuthenticateException" message="ns1:UnableToAuthenticateException" />
+      <wsdl:fault name="InvalidCredentialException" message="ns1:InvalidCredentialException" />
+    </wsdl:operation>
+    <wsdl:operation name="removeAllotmentInfo">
+      <wsdl:input name="removeAllotmentInfo" message="ns1:removeAllotmentInfo" />
+      <wsdl:output name="removeAllotmentInfoResponse" message="ns1:removeAllotmentInfoResponse" />
+      <wsdl:fault name="UnableToAuthenticateException" message="ns1:UnableToAuthenticateException" />
+      <wsdl:fault name="InvalidCredentialException" message="ns1:InvalidCredentialException" />
+    </wsdl:operation>
+    <wsdl:operation name="doManualAllotment">
+      <wsdl:input name="doManualAllotment" message="ns1:doManualAllotment" />
+      <wsdl:output name="doManualAllotmentResponse" message="ns1:doManualAllotmentResponse" />
+      <wsdl:fault name="UnableToAllotException" message="ns1:UnableToAllotException" />
+      <wsdl:fault name="InvalidTransactionIdException" message="ns1:InvalidTransactionIdException" />
+      <wsdl:fault name="AllotmentAmountIsMoreThanTransactionAmountException" message="ns1:AllotmentAmountIsMoreThanTransactionAmountException" />
+      <wsdl:fault name="UnableToAuthenticateException" message="ns1:UnableToAuthenticateException" />
+      <wsdl:fault name="InvalidCredentialException" message="ns1:InvalidCredentialException" />
+      <wsdl:fault name="InvalidTransactionForAllotmentException" message="ns1:InvalidTransactionForAllotmentException" />
+      <wsdl:fault name="InvalidAllotmentAmountTypeException" message="ns1:InvalidAllotmentAmountTypeException" />
+      <wsdl:fault name="InvalidAllotmentException" message="ns1:InvalidAllotmentException" />
+      <wsdl:fault name="TransactionAlreadyAllotedException" message="ns1:TransactionAlreadyAllotedException" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllotmentInfo">
+      <wsdl:input name="getAllotmentInfo" message="ns1:getAllotmentInfo" />
+      <wsdl:output name="getAllotmentInfoResponse" message="ns1:getAllotmentInfoResponse" />
+      <wsdl:fault name="UnableToAuthenticateException" message="ns1:UnableToAuthenticateException" />
+      <wsdl:fault name="InvalidCredentialException" message="ns1:InvalidCredentialException" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

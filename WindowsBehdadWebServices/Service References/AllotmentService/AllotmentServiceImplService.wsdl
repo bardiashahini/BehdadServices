@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.allotment.behdad.bis.misc.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="com.misc.bis.behdad.service" name="AllotmentServiceImplService" targetNamespace="http://service.allotment.behdad.bis.misc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="com.misc.bis.behdad.service" location="http://85.133.186.11:8324/behdad/allotmentservice?wsdl=AllotmentService.wsdl" />
+  <wsdl:types />
+  <wsdl:binding name="AllotmentServiceImplServiceSoapBinding" type="ns1:AllotmentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAllotmentAccounts">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllotmentAccounts">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllotmentAccountsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnableToAuthenticateException">
+        <soap:fault use="literal" name="UnableToAuthenticateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCredentialException">
+        <soap:fault use="literal" name="InvalidCredentialException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addAllotmentInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="addAllotmentInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addAllotmentInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidAllotmentItemInfoException">
+        <soap:fault use="literal" name="InvalidAllotmentItemInfoException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidDateException">
+        <soap:fault use="literal" name="InvalidDateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnableToAuthenticateException">
+        <soap:fault use="literal" name="UnableToAuthenticateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCredentialException">
+        <soap:fault use="literal" name="InvalidCredentialException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidAllotmentCodeException">
+        <soap:fault use="literal" name="InvalidAllotmentCodeException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllotmentTransactions">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllotmentTransactions">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllotmentTransactionsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidDateException">
+        <soap:fault use="literal" name="InvalidDateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="PageSizeIsTooMuchException">
+        <soap:fault use="literal" name="PageSizeIsTooMuchException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnableToAuthenticateException">
+        <soap:fault use="literal" name="UnableToAuthenticateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCredentialException">
+        <soap:fault use="literal" name="InvalidCredentialException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllotmentInfoList">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllotmentInfoList">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllotmentInfoListResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnableToAuthenticateException">
+        <soap:fault use="literal" name="UnableToAuthenticateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCredentialException">
+        <soap:fault use="literal" name="InvalidCredentialException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removeAllotmentInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="removeAllotmentInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="removeAllotmentInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnableToAuthenticateException">
+        <soap:fault use="literal" name="UnableToAuthenticateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCredentialException">
+        <soap:fault use="literal" name="InvalidCredentialException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doManualAllotment">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="doManualAllotment">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="doManualAllotmentResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnableToAllotException">
+        <soap:fault use="literal" name="UnableToAllotException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidTransactionIdException">
+        <soap:fault use="literal" name="InvalidTransactionIdException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="AllotmentAmountIsMoreThanTransactionAmountException">
+        <soap:fault use="literal" name="AllotmentAmountIsMoreThanTransactionAmountException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnableToAuthenticateException">
+        <soap:fault use="literal" name="UnableToAuthenticateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCredentialException">
+        <soap:fault use="literal" name="InvalidCredentialException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidTransactionForAllotmentException">
+        <soap:fault use="literal" name="InvalidTransactionForAllotmentException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidAllotmentAmountTypeException">
+        <soap:fault use="literal" name="InvalidAllotmentAmountTypeException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidAllotmentException">
+        <soap:fault use="literal" name="InvalidAllotmentException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="TransactionAlreadyAllotedException">
+        <soap:fault use="literal" name="TransactionAlreadyAllotedException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllotmentInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getAllotmentInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAllotmentInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnableToAuthenticateException">
+        <soap:fault use="literal" name="UnableToAuthenticateException" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidCredentialException">
+        <soap:fault use="literal" name="InvalidCredentialException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AllotmentServiceImplService">
+    <wsdl:port name="AllotmentServiceImplPort" binding="tns:AllotmentServiceImplServiceSoapBinding">
+      <soap:address location="http://85.133.186.11:8324/behdad/allotmentservice" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
